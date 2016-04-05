@@ -15,7 +15,7 @@ import javax.faces.context.FacesContext;
 public class UserView {
      
     private String usuario;
-    private String lastname;
+    private String contraseña;
  
     public String getUsuario() {
         return usuario;
@@ -25,21 +25,21 @@ public class UserView {
         this.usuario = usuario;
     }
  
-    public String getLastname() {
-        return lastname;
+    public String getContraseña() {
+        return contraseña;
     }
  
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
  
     public void save() {
         UsuarioDao dao= new UsuarioDao();
         List<Usuario> lista=dao.obtenListaUsuarios();
         for (Usuario next: lista) {
-            if (next.getUsuario().equals(usuario) && next.getContrasenia().equals(lastname)){
+            if (next.getUsuario().equals(usuario) && next.getContrasenia().equals(contraseña)){
                 FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Welcome " + usuario ));
+                new FacesMessage("Bienvenido " + usuario ));
             }
         }
         

@@ -20,12 +20,12 @@
             </p:inputText>
             <p:message for="usuario" display="icon" />
  
-            <p:outputLabel for="lastname" value="Lastname:" />
-            <p:inputText id="lastname" value="#{userView.lastname}" label="Lastname" required="true">
+            <p:outputLabel for="contraseña" value="Contraseña:" />
+            <p:inputText id="contraseña" value="#{userView.contraseña}" label="Contraseña" required="true">
                 <f:validateLength minimum="2" />
-                <p:ajax update="msgLastname" event="keyup" />
-            </p:inputText>
-            <p:message for="lastname" id="msgLastname" display="icon" />
+                <p:ajax update="msgContraseña" event="keyup" />
+            </p:inputText>>
+            <p:message for="contraseña" id="msgContraseña" display="icon" />
  
         </h:panelGrid>
  
