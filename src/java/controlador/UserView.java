@@ -5,6 +5,8 @@
  */
 package controlador;
  
+import Modelo.Usuario;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -12,15 +14,15 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 public class UserView {
      
-    private String firstname;
+    private String usuario;
     private String lastname;
  
-    public String getFirstname() {
-        return firstname;
+    public String getUsuario() {
+        return usuario;
     }
  
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
  
     public String getLastname() {
@@ -32,13 +34,15 @@ public class UserView {
     }
  
     public void save() {
-        if(firstname.equals("lo que sea")){
-            FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Welcome " + firstname + " " + lastname));
-        }else{
-            FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Welcome " + firstname ));
+        UsuarioDao dao= new UsuarioDao();
+        List<Usuario> lista=dao.obtenListaUsuarios();
+        for (Usuario next: lista) {
+            if (next.getUsuario().equals(usuario) && next.getContrasenia().equals(lastname)){
+                FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Welcome " + usuario ));
+            }
         }
+        
         
     }
 }

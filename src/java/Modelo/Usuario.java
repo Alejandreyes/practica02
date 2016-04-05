@@ -39,6 +39,11 @@ public class Usuario  implements java.io.Serializable {
         this.contrasenia = contrasenia;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario : "+ usuario + " contrasenia: "+ contrasenia; //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
 
 
